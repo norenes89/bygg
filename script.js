@@ -21,3 +21,8 @@ function generateGuide() {
     result.innerHTML = "<p>Beklager, vi har foreløpig bare veiledning for veranda. Flere prosjekter kommer!</p>";
   }
 }
+document.getElementById("tilbudForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Forespørselen din er sendt! Vi tar kontakt så snart som mulig.");
+  this.reset();
+});
