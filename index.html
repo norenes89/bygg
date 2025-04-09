@@ -3,50 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ByggHjelpen</title>
+  <title>ByggHjelpen – Planlegg ditt prosjekt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>ByggHjelpen</h1>
-    <p>Få hjelp, veiledning og priser på dine byggeprosjekter</p>
+    <p>Få hjelp med ditt byggeprosjekt – enkelt og profesjonelt</p>
   </header>
 
-  <main class="homepage">
-    <h2>Hva vil du bygge?</h2>
-
-    <div class="project-options">
-      <button onclick="selectProject('veranda')">Veranda</button>
-      <button onclick="selectProject('garasje')">Garasje</button>
-      <button onclick="selectProject('tilbygg')">Tilbygg</button>
-      <button onclick="selectProject('gjerde')">Gjerde</button>
-      <button onclick="selectProject('eget')">Eget prosjekt</button>
-    </div>
-
-    <section class="info">
-      <h3>Viktig informasjon</h3>
-      <ul>
-        <li>Minsteavstand til nabogrense: 4 meter (gjelder de fleste bygg)</li>
-        <li>Brannsikring må vurderes for bygg nær bolig</li>
-        <li>Byggesøknad kan være påkrevd ved tilbygg eller store konstruksjoner</li>
-        <li>TEK17 gjelder for alle faste konstruksjoner</li>
-        <li>Veranda på bakkenivå under 50m² trenger sjeldent søknad</li>
-      </ul>
+  <main>
+    <section class="input-section">
+      <label for="projectSelect">Velg byggeprosjekt:</label>
+      <select id="projectSelect" onchange="handleProjectSelection()">
+        <option value="">-- Velg prosjekt --</option>
+        <option value="veranda">Veranda (5x5 meter)</option>
+        <option value="garasje">Garasje</option>
+        <option value="tilpasset">Eget prosjekt (last opp bilder / forklaring)</option>
+      </select>
     </section>
-    <section id="ads">
-  <h2>Anbefalt verktøybutikk</h2>
-  <div class="ad-box">
-    <a href="https://www.verktøy.no" target="_blank">
-      <img src="https://www.verktøy.no/media/logo/stores/1/logo.png" alt="Verktøy.no logo">
-      <p>Besøk Verktøy.no for gode tilbud på Makita, DeWalt, Festool og mer!</p>
-    </a>
-  </div>
-</section>
 
+    <section id="result"></section>
   </main>
 
   <footer>
-    Kontakt: Thomas Norenes – t-norene@online.no – 97488099
+    <h4>Reklame</h4>
+    <div class="ads">
+      <a href="https://www.verktøy.no" target="_blank"><img src="https://www.verktøy.no/media/logo/stores/1/logo-black.png" alt="Verktøy.no logo" /></a>
+      <a href="https://www.dewalt.no" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/DeWalt_Logo.svg/512px-DeWalt_Logo.svg.png" alt="DeWalt logo" /></a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
