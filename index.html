@@ -8,32 +8,37 @@
 </head>
 <body>
   <header>
-    <h1>🛠️ ByggHjelpen</h1>
-    <p>Din digitale byggeveileder</p>
+    <h1>ByggHjelpen</h1>
+    <p>Få hjelp, veiledning og priser på dine byggeprosjekter</p>
   </header>
 
   <main class="homepage">
     <h2>Hva vil du bygge?</h2>
+
     <div class="project-options">
-      <button onclick="location.href='veranda.html'">🔨 Veranda</button>
-      <button onclick="location.href='garasje.html'">🚗 Garasje</button>
-      <button onclick="location.href='bod.html'">🏠 Bod</button>
-      <button onclick="location.href='egen.html'">🧠 Eget prosjekt</button>
+      <button onclick="selectProject('veranda')">Veranda</button>
+      <button onclick="selectProject('garasje')">Garasje</button>
+      <button onclick="selectProject('tilbygg')">Tilbygg</button>
+      <button onclick="selectProject('gjerde')">Gjerde</button>
+      <button onclick="selectProject('eget')">Eget prosjekt</button>
     </div>
 
     <section class="info">
-      <h3>Viktig å vite før du bygger:</h3>
+      <h3>Viktig informasjon</h3>
       <ul>
-        <li>🔥 Brannkrav – min. 4 meter til nabobygg for større konstruksjoner</li>
-        <li>📏 Tomtegrense – min. 1 meter fra nabogrense (ofte mer avhengig av høyde)</li>
-        <li>🏗️ Tiltak som krever søknad – f.eks. bygg over 50m² eller nærmere nabogrense</li>
-        <li>✅ Enkelte småbygg (f.eks. 15m² bod) kan være unntatt søknad</li>
+        <li>Minsteavstand til nabogrense: 4 meter (gjelder de fleste bygg)</li>
+        <li>Brannsikring må vurderes for bygg nær bolig</li>
+        <li>Byggesøknad kan være påkrevd ved tilbygg eller store konstruksjoner</li>
+        <li>TEK17 gjelder for alle faste konstruksjoner</li>
+        <li>Veranda på bakkenivå under 50m² trenger sjeldent søknad</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>Kontakt: Thomas Norenes – t-norene@online.no – 97488099</p>
+    Kontakt: Thomas Norenes – t-norene@online.no – 97488099
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
