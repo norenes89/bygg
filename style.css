@@ -1,60 +1,66 @@
 body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f2f2f2;
+  padding: 0;
   color: #333;
 }
 
 header {
-  background: #0057a3;
+  background: #007bff;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 main {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
-.valgseksjon {
+.project-selection h2 {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-.prosjektvalg button {
-  background: #007bff;
-  color: white;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+button {
+  padding: 1rem;
   border: none;
-  padding: 1rem 2rem;
-  margin: 0.5rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
-.prosjektvalg button:hover {
-  background: #0056b3;
+button:hover {
+  background-color: #0056b3;
 }
 
-.resultatboks {
+#content {
   background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 700px;
-  margin: 0 auto 2rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
-.annonse {
+.ads {
+  margin-top: 2rem;
   text-align: center;
-  background: #fff;
-  padding: 1.5rem;
-  border-top: 1px solid #ddd;
+}
+
+.ads img {
+  max-width: 250px;
 }
 
 footer {
@@ -62,4 +68,9 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
 }
