@@ -1,76 +1,40 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByggHjelpen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ByggHjelpen</h1>
+    <p>Få hjelp til dine byggeprosjekter – veiledning, priser, leverandører</p>
+  </header>
 
-header {
-  background: #007bff;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
+  <main>
+    <section class="prosjektvalg">
+      <h2>Hva vil du bygge?</h2>
+      <div class="valgknapper">
+        <button onclick="velgProsjekt('veranda')">Bygge veranda</button>
+        <button onclick="velgProsjekt('garasje')">Bygge garasje</button>
+        <button onclick="velgProsjekt('anneks')">Bygge anneks</button>
+        <button onclick="velgProsjekt('eget')">Eget prosjekt</button>
+      </div>
+    </section>
 
-h1 {
-  margin: 0;
-  font-size: 2rem;
-}
+    <section id="prosjektVisning"></section>
 
-main {
-  padding: 1.5rem;
-}
+    <section id="reklame">
+      <h3>Anbefalt verktøy</h3>
+      <div class="reklamer">
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://www.dewalt.no/sites/g/files/jgfbjl261/files/styles/dw_image_4_3/public/2021-06/DeWalt-Logo_0.png" alt="Dewalt"></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Makita_Logo.svg" alt="Makita"></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Festool_logo.svg" alt="Festool"></a>
+      </div>
+    </section>
+  </main>
 
-.project-selection h2 {
-  text-align: center;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-button {
-  padding: 1rem;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#content {
-  background: white;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-}
-
-.ads {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.ads img {
-  max-width: 250px;
-}
-
-footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-
-.hidden {
-  display: none;
-}
+  <script src="script.js"></script>
+</body>
+</html>
