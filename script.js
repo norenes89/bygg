@@ -1,29 +1,30 @@
-function handleProjectSelection() {
-  const selectedProject = document.getElementById("projectSelect").value;
-  const result = document.getElementById("result");
+function visGuide(prosjekt) {
+  const res = document.getElementById("resultat");
 
-  switch (selectedProject) {
-    case "veranda":
-      result.innerHTML = `
-        <h3>Veiledning for veranda 25m² (5x5 meter)</h3>
-        <p><strong>Materialer:</strong></p>
-        <ul>
-          <li>25 stk impregnert terrassebord (28x120mm x 5m)</li>
-          <li>12 stk bjelker (48x148mm)</li>
-          <li>6 stk stolpesko</li>
-          <li>6 stk søylesko + betong</li>
-          <li>Skruer og beslag</li>
-        </ul>
-        <p><strong>Tidsbruk:</strong> 20–30 timer (2 personer)</p>
-        <p><strong>Standard:</strong> Følger TEK17 og Byggforsk anbefalinger.</p>
-
-        <h4>Prissammenligning fra leverandører (april 2025)</h4>
-        <table style="width:100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th style="text-align:left; border-bottom: 1px solid #ccc;">Leverandør</th>
-              <th style="text-align:left; border-bottom: 1px solid #ccc;">Estimert pris</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Montér</td><td>kr 17 490,-</td
+  if (prosjekt === "veranda") {
+    res.innerHTML = `
+      <h3>Veiledning for veranda 25m²</h3>
+      <p><strong>Materialer:</strong></p>
+      <ul>
+        <li>25 stk terrassebord (28x120mm x 5m)</li>
+        <li>12 stk bjelker (48x148mm)</li>
+        <li>6 stolpesko, 6 søylesko + betong</li>
+        <li>Skruer og beslag</li>
+      </ul>
+      <p><strong>Estimert pris:</strong> ca 17 500 kr (Montér, Maxbo, Obs Bygg – april 2025)</p>
+      <p><strong>Tid:</strong> 20–30 timer (2 personer)</p>
+      <p><strong>Regler:</strong> Følger TEK17 og byggforsk-anbefalinger.</p>
+    `;
+  } else if (prosjekt === "garasje") {
+    res.innerHTML = `
+      <h3>Garasje kommer snart!</h3>
+      <p>Vi jobber med å lage komplett veiledning for bygging av garasje inkl. materialliste og regler.</p>
+    `;
+  } else if (prosjekt === "eget") {
+    res.innerHTML = `
+      <h3>Ditt eget prosjekt</h3>
+      <p>Beskriv hva du ønsker å bygge. Last opp bilder eller tegninger, så hjelper vi deg med veiledning.</p>
+      <p><strong>Tips:</strong> Husk å sjekke regler for avstand til nabo, maks høyde og brannkrav.</p>
+    `;
+  }
+}
