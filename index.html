@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ByggHjelpen</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>🛠️ ByggHjelpen</h1>
-    <p>Få hjelp til byggeprosjektet ditt – enkelt og oversiktlig</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByggHjelpen</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ByggHjelpen</h1>
+      <p>Din digitale veileder til små og store byggeprosjekter</p>
+    </header>
 
-  <main>
-    <section class="valgseksjon">
-      <h2>Hva vil du bygge?</h2>
-      <div class="prosjektvalg">
-        <button onclick="visGuide('veranda')">Bygg veranda</button>
-        <button onclick="visGuide('garasje')">Bygg garasje</button>
-        <button onclick="visGuide('eget')">Eget prosjekt</button>
-      </div>
-    </section>
+    <main>
+      <section class="project-selection">
+        <h2>Hva vil du bygge?</h2>
+        <div class="buttons">
+          <button onclick="showProject('veranda')">Bygge veranda</button>
+          <button onclick="showProject('garasje')">Bygge garasje</button>
+          <button onclick="showProject('eget')">Eget prosjekt</button>
+        </div>
+      </section>
 
-    <section id="resultat" class="resultatboks"></section>
+      <section id="content" class="hidden"></section>
 
-    <section class="annonse">
-      <h3>Anbefalt verktøybutikk</h3>
-      <a href="https://www.verktøy.no" target="_blank">
-        <img src="https://www.verktøy.no/media/logo/stores/1/logo-verktøy.png" alt="Verktøy.no
+      <section class="ads">
+        <h3>Anbefalt verktøy</h3>
+        <a href="https://www.verktøy.no" target="_blank">
+          <img src="https://www.verktøy.no/media/wysiwyg/verktøy-logo.png" alt="Verktøy.no" />
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Kontakt: Thomas Norenes – t-norene@online.no – 974 88 099</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
