@@ -3,37 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ByggHjelpen – Planlegg ditt prosjekt</title>
+  <title>ByggHjelpen</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>ByggHjelpen</h1>
-    <p>Få hjelp med ditt byggeprosjekt – enkelt og profesjonelt</p>
+    <h1>🛠️ ByggHjelpen</h1>
+    <p>Få hjelp til byggeprosjektet ditt – enkelt og oversiktlig</p>
   </header>
 
   <main>
-    <section class="input-section">
-      <label for="projectSelect">Velg byggeprosjekt:</label>
-      <select id="projectSelect" onchange="handleProjectSelection()">
-        <option value="">-- Velg prosjekt --</option>
-        <option value="veranda">Veranda (5x5 meter)</option>
-        <option value="garasje">Garasje</option>
-        <option value="tilpasset">Eget prosjekt (last opp bilder / forklaring)</option>
-      </select>
+    <section class="valgseksjon">
+      <h2>Hva vil du bygge?</h2>
+      <div class="prosjektvalg">
+        <button onclick="visGuide('veranda')">Bygg veranda</button>
+        <button onclick="visGuide('garasje')">Bygg garasje</button>
+        <button onclick="visGuide('eget')">Eget prosjekt</button>
+      </div>
     </section>
 
-    <section id="result"></section>
-  </main>
+    <section id="resultat" class="resultatboks"></section>
 
-  <footer>
-    <h4>Reklame</h4>
-    <div class="ads">
-      <a href="https://www.verktøy.no" target="_blank"><img src="https://www.verktøy.no/media/logo/stores/1/logo-black.png" alt="Verktøy.no logo" /></a>
-      <a href="https://www.dewalt.no" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/DeWalt_Logo.svg/512px-DeWalt_Logo.svg.png" alt="DeWalt logo" /></a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <section class="annonse">
+      <h3>Anbefalt verktøybutikk</h3>
+      <a href="https://www.verktøy.no" target="_blank">
+        <img src="https://www.verktøy.no/media/logo/stores/1/logo-verktøy.png" alt="Verktøy.no
