@@ -1,68 +1,76 @@
-function showGuide(type) {
+function generateGuide() {
+  const input = document.getElementById('userInput').value.toLowerCase();
   const result = document.getElementById('result');
-  document.getElementById("custom-project").style.display = "none";
 
-  if (type === "veranda") {
+  if (input.includes("veranda") && input.includes("25")) {
+    const materialer = [
+      {
+        navn: "Terrassebord 28x120 mm impregnert",
+        mengde: "50 stk (5m)",
+        priser: {
+          "Montér": "49,90 kr/stk",
+          "Obs Bygg": "45,00 kr/stk",
+          "Maxbo": "52,00 kr/stk"
+        }
+      },
+      {
+        navn: "Konstruksjonsvirke 48x148 mm C24 (bjelkelag)",
+        mengde: "20 stk (4.8m)",
+        priser: {
+          "Montér": "74,90 kr/m",
+          "Obs Bygg": "69,00 kr/m",
+          "Maxbo": "78,50 kr/m"
+        }
+      },
+      {
+        navn: "Stolpesko 91 mm",
+        mengde: "8 stk",
+        priser: {
+          "Montér": "39,90 kr/stk",
+          "Obs Bygg": "35,00 kr/stk",
+          "Maxbo": "42,50 kr/stk"
+        }
+      },
+      {
+        navn: "Skruer terrasse 4.8x75 mm rustfri A2",
+        mengde: "1000 stk (1 boks)",
+        priser: {
+          "Montér": "329,00 kr",
+          "Obs Bygg": "299,00 kr",
+          "Maxbo": "349,00 kr"
+        }
+      }
+    ];
+
+    let materialListe = "<ul>";
+    materialer.forEach(m => {
+      materialListe += `
+        <li>
+          <strong>${m.navn}</strong> – ${m.mengde}
+          <br>Pris: 
+          <ul>
+            <li>Montér: ${m.priser["Montér"]}</li>
+            <li>Obs Bygg: ${m.priser["Obs Bygg"]}</li>
+            <li>Maxbo: ${m.priser["Maxbo"]}</li>
+          </ul>
+        </li>`;
+    });
+    materialListe += "</ul>";
+
     result.innerHTML = `
-      <h3>Veiledning: Bygge Veranda (25 m²)</h3>
+      <h3>Veiledning for veranda 25m² (5x5 meter)</h3>
+      <p><strong>Materialer:</strong></p>
+      ${materialListe}
+      <p><strong>Tidsbruk:</strong> ca 20–30 timer (2 personer)</p>
+      <p><strong>Verktøyanbefaling:</strong> Drill, sag, målebånd, vater, jordbor</p>
+      <p><strong>Tips:</strong></p>
       <ul>
-        <li>25 stk impregnert terrassebord (28x120 mm x 5 m)</li>
-        <li>12 stk bjelker (48x148 mm)</li>
-        <li>6 stk stolpesko</li>
-        <li>6 stk søylesko + betong</li>
-        <li>Skruer og beslag</li>
+        <li>Husk 4 meter grense til nabo eller søk dispensasjon.</li>
+        <li>Impregnert treverk bør oljes etter 1 år.</li>
+        <li>Bruk rustfrie skruer for å unngå misfarging.</li>
       </ul>
-      <p><strong>Pris:</strong> ca. 17 500 kr (Montér, Maxbo, Obs Bygg – april 2025)</p>
-      <p><strong>Estimert tid:</strong> 20–30 timer (2 personer)</p>
-      <p><strong>Tips:</strong> Husk avstand til nabogrense (min. 4 m), brannsikring og værforhold.</p>
     `;
-  } else if (type === "bod") {
-    result.innerHTML = `
-      <h3>Veiledning: Bygge Bod (6 m²)</h3>
-      <ul>
-        <li>6 stk panelplater (2x1,2 m)</li>
-        <li>10 stk 2x4" reisverk</li>
-        <li>3 stk takstoler</li>
-        <li>Takpapp og beslag</li>
-        <li>Skruer og festemateriell</li>
-      </ul>
-      <p><strong>Pris:</strong> ca. 12 000 kr</p>
-      <p><strong>Estimert tid:</strong> 15–20 timer</p>
-      <p><strong>Tips:</strong> Husk søknadsplikt ved høyde over 3 meter.</p>
-    `;
-  } else if (type === "garasje") {
-    result.innerHTML = `
-      <h3>Veiledning: Enkel Garasje (18 m²)</h3>
-      <ul>
-        <li>Fundament: Betong + armering</li>
-        <li>Bindingsverk: 2x6"</li>
-        <li>Takstoler og takplater</li>
-        <li>Garasjeport og dør</li>
-        <li>Skruer, beslag og isolasjon</li>
-      </ul>
-      <p><strong>Pris:</strong> ca. 55 000 kr</p>
-      <p><strong>Estimert tid:</strong> 40–60 timer</p>
-      <p><strong>Tips:</strong> Sjekk reguleringsplan og innkjøring fra vei.</p>
-    `;
+  } else {
+    result.innerHTML = "<p>Beklager, vi har foreløpig bare veiledning for veranda 25m². Flere prosjekter kommer!</p>";
   }
-}
-
-function toggleCustom() {
-  const section = document.getElementById("custom-project");
-  const result = document.getElementById("result");
-  result.innerHTML = "";
-  section.style.display = section.style.display === "none" ? "block" : "none";
-}
-
-function submitCustom() {
-  const input = document.getElementById("userInput").value;
-  const result = document.getElementById("result");
-  
-  result.innerHTML = `
-    <h3>AI-veiledning for ditt prosjekt:</h3>
-    <p><strong>Materialforslag:</strong> Basert på beskrivelsen antar vi du trenger konstruksjonsvirke, fundamentering, kledning og tak.</p>
-    <p><strong>Estimert pris:</strong> ca. 35 000 – 70 000 kr (avhengig av størrelse og valg)</p>
-    <p><strong>Verktøy du trenger:</strong> Drill, sag, vater, skrutrekker – anbefalt merke: Makita, Dewalt</p>
-    <p><strong>Tips:</strong> Sørg for lufting, avstand til tomtegrense, og værforhold som snø og vind.</p>
-  `;
 }
