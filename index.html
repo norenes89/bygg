@@ -4,59 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ByggHjelpen</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
   <header>
     <h1>ByggHjelpen</h1>
-    <p>Din veiviser til smarte byggeprosjekter</p>
+    <p>Planlegg ditt neste byggeprosjekt – få hjelp med materialer, priser og verktøy</p>
   </header>
 
-  <section id="project-selector">
-    <h2>Hva vil du bygge?</h2>
-    <div class="project-buttons">
-      <button onclick="selectProject('veranda')">Bygg veranda</button>
-      <button onclick="selectProject('garasje')">Bygg garasje</button>
-      <button onclick="selectProject('bod')">Bygg bod</button>
-      <button onclick="selectProject('eget')">Annet prosjekt</button>
-    </div>
-  </section>
+  <main>
+    <section class="project-selector">
+      <h2>Hva vil du bygge?</h2>
+      <button onclick="selectProject('veranda')">Veranda</button>
+      <button onclick="selectProject('garasje')">Garasje</button>
+      <button onclick="selectProject('eget')">Eget prosjekt</button>
+    </section>
 
-  <section id="user-form">
-    <h2>Ditt prosjekt</h2>
-    <form id="customProjectForm" onsubmit="handleSubmit(event)">
-      <input type="text" id="name" placeholder="Navn" required>
-      <input type="text" id="address" placeholder="Adresse" required>
-      <input type="email" id="email" placeholder="E-post" required>
-      <input type="tel" id="phone" placeholder="Telefon" required>
-      <textarea id="projectDescription" placeholder="Beskriv prosjektet ditt..." required></textarea>
-      <input type="file" id="uploadImage" accept="image/*">
-      <button type="submit">Send inn prosjekt</button>
-    </form>
-  </section>
+    <section id="userInputSection" class="hidden">
+      <h3>Beskriv ditt prosjekt</h3>
+      <textarea id="userInput" placeholder="Fortell hva du vil bygge..."></textarea>
 
-  <section id="result" class="hidden">
-    <h2>AI-veiledning</h2>
-    <div id="aiResponse"></div>
-    <div id="projectImage"></div>
-  </section>
+      <h3>Dine opplysninger</h3>
+      <input type="text" id="name" placeholder="Navn" />
+      <input type="text" id="address" placeholder="Adresse" />
+      <input type="email" id="email" placeholder="E-post" />
+      <input type="tel" id="phone" placeholder="Telefon" />
+      <button onclick="submitProject()">Send inn</button>
+    </section>
 
-  <section id="tips" class="hidden">
-    <h3>Tips</h3>
-    <ul id="tipsList">
-      <li>Bygg minst 1 meter fra nabogrensen</li>
-      <li>Sjekk behov for byggesøknad</li>
-      <li>Bruk godkjente materialer utendørs</li>
-    </ul>
-  </section>
+    <section id="followUpSection" class="hidden">
+      <h3>AI har noen spørsmål for å hjelpe deg bedre:</h3>
+      <div id="aiQuestions"></div>
+      <textarea id="aiResponse" placeholder="Skriv dine svar her..."></textarea>
+      <button onclick="answerQuestions()">Svar AI</button>
+    </section>
 
-  <section id="reklame">
-    <h3>Populære verktøy</h3>
-    <div class="ad-carousel" id="adCarousel">
-      <!-- fylles av script -->
-    </div>
-  </section>
+    <section id="aiResults" class="hidden">
+      <h3>Forslag fra ByggHjelpen</h3>
+      <div id="aiImage"></div>
+      <div id="materialList"></div>
+      <div id="priceBreakdown"></div>
+      <div id="tips"></div>
+    </section>
+
+    <section class="ads">
+      <h3>Anbefalt verktøy</h3>
+      <div class="ad-carousel">
+        <a href="https://www.verktøy.no/makita" target="_blank"><img src="https://images.unsplash.com/photo-1616627989394-53f271a5a4d9" alt="Makita" /></a>
+        <a href="https://www.verktøy.no/dewalt" target="_blank"><img src="https://images.unsplash.com/photo-1616627989161-1913f4945e91" alt="DeWalt" /></a>
+        <a href="https://www.verktøy.no/festool" target="_blank"><img src="https://images.unsplash.com/photo-1616627989522-15ae1b34bc94" alt="Festool" /></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ByggHjelpen – Alt du trenger for å bygge smart.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
