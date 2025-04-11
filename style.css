@@ -1,34 +1,25 @@
 body {
-  font-family: sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f2f2f2;
-  color: #333;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
 header {
-  background: #204e4a;
+  background-color: #00487c;
   color: white;
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
 }
 
-main {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-textarea, input {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
+nav {
+  margin-top: 1rem;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #276f63;
+  margin: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  background-color: #0099cc;
   color: white;
   border: none;
   border-radius: 5px;
@@ -36,49 +27,25 @@ button {
 }
 
 button:hover {
-  background-color: #1c4f46;
+  background-color: #0077aa;
 }
 
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.image-container img {
-  width: 100%;
-  max-width: 500px;
-  margin-top: 20px;
-  border-radius: 8px;
-}
-
-.reklame-container {
-  background-color: white;
-  padding: 20px;
+footer {
+  margin-top: 2rem;
   text-align: center;
+  padding: 1rem;
+  background-color: #eee;
 }
 
-.reklame-slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 30px;
-  padding: 10px 0;
-  justify-content: center;
-}
-
-.reklame-slider img {
-  height: 50px;
-  object-fit: contain;
-  transition: transform 0.3s;
-}
-
-.reklame-slider img:hover {
-  transform: scale(1.1);
-}
-
-.tips-section {
-  margin-top: 30px;
-  background-color: #e8f7f6;
-  padding: 20px;
-  border-radius: 8px;
+.ads {
+  margin-bottom: 1rem;
 }
