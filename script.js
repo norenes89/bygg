@@ -1,69 +1,81 @@
-document.getElementById("projectForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+function chooseProject(type) {
+  document.getElementById("projectInput").style.display = "block";
+  document.getElementById("userInput").value = type === "eget" ? "" : `Jeg vil bygge en ${type}`;
+}
 
+function sendProject() {
+  const input = document.getElementById("userInput").value.toLowerCase();
   const navn = document.getElementById("navn").value;
   const adresse = document.getElementById("adresse").value;
   const epost = document.getElementById("epost").value;
   const telefon = document.getElementById("telefon").value;
-  const beskrivelse = document.getElementById("beskrivelse").value.toLowerCase();
-
-  const aiResponse = document.getElementById("aiResponse");
-  const materialliste = document.getElementById("materialliste");
-  const oppfolgingsSporsmal = document.getElementById("oppfolgingsSporsmal");
-  const generertBilde = document.getElementById("generertBilde");
-  const prisOversikt = document.getElementById("prisOversikt");
+  const result = document.getElementById("result");
   const tips = document.getElementById("tips");
+  const imageResult = document.getElementById("imageResult");
 
-  aiResponse.classList.remove("hidden");
+  let materialer = "";
+  let pris = "";
+  let bilde = "";
+  let ekstraTips = "";
 
-  if (beskrivelse.includes("garasje")) {
-    materialliste.innerHTML = `
-      <h3>Materialforslag</h3>
+  if (input.includes("veranda")) {
+    materialer = `
       <ul>
-        <li>48x148mm konstruksjonsvirke (reisverk)</li>
-        <li>GU gipsplater eller vindtettplate</li>
-        <li>Liggende dobbelfals kledning</li>
-        <li>Takstoler – 30 graders vinkel</li>
-        <li>Takstein (f.eks. BMI Zanda Protector)</li>
-        <li>1 stk dobbel port (5m bredde)</li>
-        <li>1 stk ytterdør</li>
-        <li>2 stk vinduer (40x120 cm, åpningsbare)</li>
-        <li>Skruer, beslag, vindsperre, maling, osv.</li>
+        <li>25 stk terrassebord 28x120mm impregnert – kr 79/stk</li>
+        <li>12 stk bjelker 48x148mm – kr 95/stk</li>
+        <li>6 stk stolpesko – kr 45/stk</li>
+        <li>6 stk søylesko + betong – kr 110/stk</li>
+        <li>1 pakke treskruer – kr 229</li>
       </ul>
     `;
-
-    oppfolgingsSporsmal.innerHTML = `
-      <h3>Vi trenger mer info:</h3>
-      <p>Hvilken type kledning ønsker du?<br>
-      Skal garasjen isoleres?<br>
-      Hvilken farge på ytterpanel?<br>
-      Skal det være takstein eller platetak?</p>
-    `;
-
-    generertBilde.innerHTML = `<p>[Bilde genereres her – AI-tegning]</p>`;
-
-    prisOversikt.innerHTML = `
-      <h3>Priseksempel</h3>
+    pris = "Ca. 7 800 kr (Montér, Obs Bygg, april 2025)";
+    bilde = "https://images.unsplash.com/photo-1598228723793-527b26a1c0df";
+    ekstraTips = `
       <ul>
-        <li>48x148mm konstruksjonsvirke: 45 kr/m (Montér)</li>
-        <li>Kledning dobbelfals: 27 kr/lm (Maxbo)</li>
-        <li>Takstein: ca 165 kr/m² (Byggmakker)</li>
-        <li>Dør og vinduer: ca 6 000 kr</li>
-        <li>Dobbel port: 15 000 kr</li>
+        <li>Husk avstand på 4 meter til nabogrense ved veranda over 50cm høyde.</li>
+        <li>Sjekk om du må søke byggesøknad.</li>
       </ul>
-      <p><strong>Totalpris estimat:</strong> 85 000–120 000 kr</p>
     `;
-
-    tips.innerHTML = `
-      <h3>Tips til bygging</h3>
+  } else if (input.includes("garasje")) {
+    materialer = `
       <ul>
-        <li>Hold minst 4 meter til nabogrensen hvis ikke annet er avtalt.</li>
-        <li>Sjekk med kommunen om garasjen må meldes eller søkes.</li>
-        <li>Bruk vindsperre og vannbrett over vinduene.</li>
-        <li>Bruk trykkimpregnert svill mot grunnmur.</li>
+        <li>Reisverk 48x148mm – ca 50 stk (kr 85/stk)</li>
+        <li>Panel kledning furu dobbelfals – 70 m² (kr 32/m²)</li>
+        <li>Takstoler (til 6x7m) – 6 stk (kr 1800/stk)</li>
+        <li>Takstein Zanda – 80 m² (kr 115/m²)</li>
+        <li>Dør, dobbel port, vinduer</li>
+        <li>Skruer, beslag og isolasjon hvis ønsket</li>
+      </ul>
+    `;
+    pris = "Ca. 59 000 kr (avhengig av kledning og taktype)";
+    bilde = "https://images.unsplash.com/photo-1609700207654-8b06ad7e90d3";
+    ekstraTips = `
+      <ul>
+        <li>Skal du isolere, må du bruke dampsperre og vindtetting.</li>
+        <li>Takvinkel over 22 grader anbefales for snølast.</li>
+        <li>Avstand til vei og nabotomt må være 1 meter eller mer.</li>
       </ul>
     `;
   } else {
-    materialliste.innerHTML = "<p>Vi støtter foreløpig bare garasje. Flere prosjekter kommer!</p>";
+    materialer = "Vi trenger mer informasjon. Hva slags prosjekt vil du bygge? Husk å spesifisere størrelse, materialvalg og om det skal isoleres.";
+    pris = "-";
+    bilde = "";
+    ekstraTips = "";
   }
-});
+
+  result.innerHTML = `
+    <h3>Prosjekt for ${navn}</h3>
+    <p><strong>Adresse:</strong> ${adresse}</p>
+    <p><strong>Materialliste:</strong></p>${materialer}
+    <p><strong>Estimert pris:</strong> ${pris}</p>
+  `;
+
+  imageResult.innerHTML = bilde
+    ? `<img src="${bilde}" alt="Byggeprosjekt bilde"/>`
+    : "";
+
+  tips.innerHTML = `
+    <h3>Tips:</h3>
+    ${ekstraTips}
+  `;
+}
