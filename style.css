@@ -1,92 +1,84 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
+  background: #f2f2f2;
+  color: #333;
 }
 
 header {
-  background-color: #005f73;
+  background: #204e4a;
   color: white;
-  padding: 2rem;
+  padding: 20px;
   text-align: center;
 }
 
 main {
-  padding: 2rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
+  padding: 20px;
+  max-width: 900px;
   margin: auto;
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-input, textarea, button {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+textarea, input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
 }
 
 button {
-  background-color: #0a9396;
+  padding: 10px 20px;
+  background-color: #276f63;
   color: white;
-  cursor: pointer;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #007f80;
+  background-color: #1c4f46;
 }
 
-section.hidden {
-  display: none;
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
 }
 
-#aiResponse {
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 12px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.image-container img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  border-radius: 8px;
 }
 
-.ads {
-  margin-top: 3rem;
+.reklame-container {
+  background-color: white;
+  padding: 20px;
   text-align: center;
 }
 
-.carousel {
+.reklame-slider {
   display: flex;
-  gap: 1rem;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 10px 0;
   justify-content: center;
-  margin-top: 1rem;
 }
 
-.carousel img {
-  width: 180px;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+.reklame-slider img {
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s;
 }
 
-.carousel img:hover {
-  transform: scale(1.05);
+.reklame-slider img:hover {
+  transform: scale(1.1);
 }
 
-footer {
-  background-color: #003845;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  margin-top: 3rem;
+.tips-section {
+  margin-top: 30px;
+  background-color: #e8f7f6;
+  padding: 20px;
+  border-radius: 8px;
 }
