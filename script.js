@@ -1,71 +1,69 @@
-function selectProject(type) {
-  document.getElementById("user-form").scrollIntoView({ behavior: "smooth" });
-  document.getElementById("projectDescription").value = `Prosjekttype: ${type}\nBeskriv mer om hva du ønsker å bygge her...`;
-}
+document.getElementById("projectForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-function handleSubmit(event) {
-  event.preventDefault();
+  const navn = document.getElementById("navn").value;
+  const adresse = document.getElementById("adresse").value;
+  const epost = document.getElementById("epost").value;
+  const telefon = document.getElementById("telefon").value;
+  const beskrivelse = document.getElementById("beskrivelse").value.toLowerCase();
 
-  const name = document.getElementById("name").value;
-  const address = document.getElementById("address").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const description = document.getElementById("projectDescription").value.toLowerCase();
-  const result = document.getElementById("aiResponse");
-  const resultSection = document.getElementById("result");
-  const tipsSection = document.getElementById("tips");
+  const aiResponse = document.getElementById("aiResponse");
+  const materialliste = document.getElementById("materialliste");
+  const oppfolgingsSporsmal = document.getElementById("oppfolgingsSporsmal");
+  const generertBilde = document.getElementById("generertBilde");
+  const prisOversikt = document.getElementById("prisOversikt");
+  const tips = document.getElementById("tips");
 
-  // Simulert AI-svar med veiledning
-  let response = `<p><strong>Navn:</strong> ${name}<br><strong>Adresse:</strong> ${address}<br><strong>Telefon:</strong> ${phone}<br><strong>E-post:</strong> ${email}</p>`;
-  response += `<p><strong>Prosjektbeskrivelse:</strong><br>${description}</p>`;
+  aiResponse.classList.remove("hidden");
 
-  if (description.includes("garasje")) {
-    if (!description.includes("kledning")) {
-      response += `<p><strong>Oppfølging:</strong> Hvilken type kledning ønsker du? Vi anbefaler stående tømmermann eller liggende dobbelfals kledning.</p>`;
-    }
-    if (!description.includes("reisverk")) {
-      response += `<p><strong>Oppfølging:</strong> Ønsker du standard reisverk? Vi foreslår 48x148mm konstruksjonsvirke.</p>`;
-    }
-    response += `<p><strong>Forslag materialer:</strong></p><ul>
-      <li>30 stk konstruksjonsvirke 48x148mm (7m)</li>
-      <li>15 stk asfaltplater</li>
-      <li>Takstoler – avhengig av taktype</li>
-      <li>Dobbel port + 1 dør + 2 vinduer</li>
-      <li>Skruer, beslag, maling, verktøy</li>
-    </ul>
-    <p><strong>Estimert pris:</strong> Ca 85 000 kr (Montér, Maxbo, Obs Bygg – april 2025)</p>`;
-  } else if (description.includes("veranda")) {
-    response += `<p><strong>Forslag materialer:</strong></p><ul>
-      <li>25 stk terrassebord 28x120mm (5m)</li>
-      <li>12 bjelker 48x148mm</li>
-      <li>6 søyler + stolpesko + betong</li>
-    </ul>
-    <p><strong>Pris:</strong> Ca 17 500 kr (Montér, Obs Bygg, Maxbo)</p>`;
+  if (beskrivelse.includes("garasje")) {
+    materialliste.innerHTML = `
+      <h3>Materialforslag</h3>
+      <ul>
+        <li>48x148mm konstruksjonsvirke (reisverk)</li>
+        <li>GU gipsplater eller vindtettplate</li>
+        <li>Liggende dobbelfals kledning</li>
+        <li>Takstoler – 30 graders vinkel</li>
+        <li>Takstein (f.eks. BMI Zanda Protector)</li>
+        <li>1 stk dobbel port (5m bredde)</li>
+        <li>1 stk ytterdør</li>
+        <li>2 stk vinduer (40x120 cm, åpningsbare)</li>
+        <li>Skruer, beslag, vindsperre, maling, osv.</li>
+      </ul>
+    `;
+
+    oppfolgingsSporsmal.innerHTML = `
+      <h3>Vi trenger mer info:</h3>
+      <p>Hvilken type kledning ønsker du?<br>
+      Skal garasjen isoleres?<br>
+      Hvilken farge på ytterpanel?<br>
+      Skal det være takstein eller platetak?</p>
+    `;
+
+    generertBilde.innerHTML = `<p>[Bilde genereres her – AI-tegning]</p>`;
+
+    prisOversikt.innerHTML = `
+      <h3>Priseksempel</h3>
+      <ul>
+        <li>48x148mm konstruksjonsvirke: 45 kr/m (Montér)</li>
+        <li>Kledning dobbelfals: 27 kr/lm (Maxbo)</li>
+        <li>Takstein: ca 165 kr/m² (Byggmakker)</li>
+        <li>Dør og vinduer: ca 6 000 kr</li>
+        <li>Dobbel port: 15 000 kr</li>
+      </ul>
+      <p><strong>Totalpris estimat:</strong> 85 000–120 000 kr</p>
+    `;
+
+    tips.innerHTML = `
+      <h3>Tips til bygging</h3>
+      <ul>
+        <li>Hold minst 4 meter til nabogrensen hvis ikke annet er avtalt.</li>
+        <li>Sjekk med kommunen om garasjen må meldes eller søkes.</li>
+        <li>Bruk vindsperre og vannbrett over vinduene.</li>
+        <li>Bruk trykkimpregnert svill mot grunnmur.</li>
+      </ul>
+    `;
   } else {
-    response += `<p>Vi jobber med å tolke prosjektet ditt! Kommer straks med veiledning...</p>`;
+    materialliste.innerHTML = "<p>Vi støtter foreløpig bare garasje. Flere prosjekter kommer!</p>";
   }
-
-  // Simulert bilde
-  document.getElementById("projectImage").innerHTML = `<img src="https://via.placeholder.com/600x300?text=Ditt+byggeprosjekt" alt="Byggeprosjekt bilde" />`;
-
-  result.innerHTML = response;
-  resultSection.classList.remove("hidden");
-  tipsSection.classList.remove("hidden");
-}
-
-// Reklame
-const ads = [
-  { name: "DeWalt Drill", link: "https://www.verktøy.no", color: "#facc15" },
-  { name: "Makita Sag", link: "https://www.verktøy.no", color: "#60a5fa" },
-  { name: "Festool Støvsuger", link: "https://www.verktøy.no", color: "#34d399" },
-];
-
-const adContainer = document.getElementById("adCarousel");
-ads.forEach(ad => {
-  const adLink = document.createElement("a");
-  adLink.href = ad.link;
-  adLink.target = "_blank";
-  adLink.style.background = ad.color;
-  adLink.innerText = ad.name;
-  adContainer.appendChild(adLink);
 });
