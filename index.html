@@ -4,61 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ByggHjelpen</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>ByggHjelpen</h1>
-    <p>Planlegg ditt neste byggeprosjekt – få hjelp med materialer, priser og verktøy</p>
+    <p>Få veiledning, priser og tips til ditt byggeprosjekt</p>
   </header>
 
   <main>
-    <section class="project-selector">
+    <section class="intro">
       <h2>Hva vil du bygge?</h2>
-      <button onclick="selectProject('veranda')">Veranda</button>
-      <button onclick="selectProject('garasje')">Garasje</button>
-      <button onclick="selectProject('eget')">Eget prosjekt</button>
-    </section>
-
-    <section id="userInputSection" class="hidden">
-      <h3>Beskriv ditt prosjekt</h3>
-      <textarea id="userInput" placeholder="Fortell hva du vil bygge..."></textarea>
-
-      <h3>Dine opplysninger</h3>
-      <input type="text" id="name" placeholder="Navn" />
-      <input type="text" id="address" placeholder="Adresse" />
-      <input type="email" id="email" placeholder="E-post" />
-      <input type="tel" id="phone" placeholder="Telefon" />
-      <button onclick="submitProject()">Send inn</button>
-    </section>
-
-    <section id="followUpSection" class="hidden">
-      <h3>AI har noen spørsmål for å hjelpe deg bedre:</h3>
-      <div id="aiQuestions"></div>
-      <textarea id="aiResponse" placeholder="Skriv dine svar her..."></textarea>
-      <button onclick="answerQuestions()">Svar AI</button>
-    </section>
-
-    <section id="aiResults" class="hidden">
-      <h3>Forslag fra ByggHjelpen</h3>
-      <div id="aiImage"></div>
-      <div id="materialList"></div>
-      <div id="priceBreakdown"></div>
-      <div id="tips"></div>
-    </section>
-
-    <section class="ads">
-      <h3>Anbefalt verktøy</h3>
-      <div class="ad-carousel">
-        <a href="https://www.verktøy.no/makita" target="_blank"><img src="https://images.unsplash.com/photo-1616627989394-53f271a5a4d9" alt="Makita" /></a>
-        <a href="https://www.verktøy.no/dewalt" target="_blank"><img src="https://images.unsplash.com/photo-1616627989161-1913f4945e91" alt="DeWalt" /></a>
-        <a href="https://www.verktøy.no/festool" target="_blank"><img src="https://images.unsplash.com/photo-1616627989522-15ae1b34bc94" alt="Festool" /></a>
+      <div class="button-grid">
+        <button onclick="chooseProject('veranda')">Bygge veranda</button>
+        <button onclick="chooseProject('garasje')">Bygge garasje</button>
+        <button onclick="chooseProject('anneks')">Bygge anneks</button>
+        <button onclick="chooseProject('eget')">Eget prosjekt</button>
       </div>
     </section>
+
+    <section id="projectInput" style="display:none;">
+      <h3>Beskriv ditt prosjekt:</h3>
+      <textarea id="userInput" placeholder="Beskriv hva du vil bygge..."></textarea>
+      <input type="text" id="navn" placeholder="Navn" />
+      <input type="text" id="adresse" placeholder="Adresse" />
+      <input type="email" id="epost" placeholder="E-post" />
+      <input type="tel" id="telefon" placeholder="Telefonnummer" />
+      <button onclick="sendProject()">Send inn prosjekt</button>
+    </section>
+
+    <section id="result"></section>
+
+    <section id="imageResult" class="image-container"></section>
+
+    <section id="tips" class="tips-section"></section>
   </main>
 
   <footer>
-    <p>© 2025 ByggHjelpen – Alt du trenger for å bygge smart.</p>
+    <div class="reklame-container">
+      <div class="reklame-slider">
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://www.dewalt.no/themes/custom/dewalt/img/logo-black.png" alt="Dewalt" /></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://cdn.makita.co.nz/assets/images/logos/logo-makita.png" alt="Makita" /></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://festool.no/uploads/logo_festool_2020_rgb_400px_5f6b6b60c728f.png" alt="Festool" /></a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
