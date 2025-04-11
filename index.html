@@ -1,55 +1,40 @@
 <!DOCTYPE html>
 <html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ByggHjelpen</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>ByggHjelpen</h1>
-    <p>Få veiledning, priser og tips til ditt byggeprosjekt</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Din ByggHjelp</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Din ByggHjelp</h1>
+      <nav>
+        <button onclick="loadProject('veranda')">Bygg veranda</button>
+        <button onclick="loadProject('garasje')">Bygg garasje</button>
+        <button onclick="loadProject('tilbygg')">Bygg tilbygg</button>
+        <button onclick="loadProject('eget')">Eget prosjekt</button>
+      </nav>
+    </header>
 
-  <main>
-    <section class="intro">
-      <h2>Hva vil du bygge?</h2>
-      <div class="button-grid">
-        <button onclick="chooseProject('veranda')">Bygge veranda</button>
-        <button onclick="chooseProject('garasje')">Bygge garasje</button>
-        <button onclick="chooseProject('anneks')">Bygge anneks</button>
-        <button onclick="chooseProject('eget')">Eget prosjekt</button>
+    <main id="mainContent">
+      <section id="intro">
+        <h2>Velg prosjektet du vil ha hjelp til</h2>
+        <p>Vi veileder deg med materialer, priser, og lover – helt gratis!</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="ads">
+        <marquee behavior="scroll" direction="left">
+          <a href="https://www.verktøy.no" target="_blank">
+            🔧 Populære verktøy fra Makita, DeWalt, Festool – Klikk her!
+          </a>
+        </marquee>
       </div>
-    </section>
+      <p>© 2025 Din ByggHjelp</p>
+    </footer>
 
-    <section id="projectInput" style="display:none;">
-      <h3>Beskriv ditt prosjekt:</h3>
-      <textarea id="userInput" placeholder="Beskriv hva du vil bygge..."></textarea>
-      <input type="text" id="navn" placeholder="Navn" />
-      <input type="text" id="adresse" placeholder="Adresse" />
-      <input type="email" id="epost" placeholder="E-post" />
-      <input type="tel" id="telefon" placeholder="Telefonnummer" />
-      <button onclick="sendProject()">Send inn prosjekt</button>
-    </section>
-
-    <section id="result"></section>
-
-    <section id="imageResult" class="image-container"></section>
-
-    <section id="tips" class="tips-section"></section>
-  </main>
-
-  <footer>
-    <div class="reklame-container">
-      <div class="reklame-slider">
-        <a href="https://www.verktøy.no" target="_blank"><img src="https://www.dewalt.no/themes/custom/dewalt/img/logo-black.png" alt="Dewalt" /></a>
-        <a href="https://www.verktøy.no" target="_blank"><img src="https://cdn.makita.co.nz/assets/images/logos/logo-makita.png" alt="Makita" /></a>
-        <a href="https://www.verktøy.no" target="_blank"><img src="https://festool.no/uploads/logo_festool_2020_rgb_400px_5f6b6b60c728f.png" alt="Festool" /></a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
