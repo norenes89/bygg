@@ -7,42 +7,56 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header>
-    <h1>🛠️ ByggHjelpen</h1>
-    <p>Få hjelp til ditt byggeprosjekt – veiledning, priser og tips!</p>
+    <h1>ByggHjelpen</h1>
+    <p>Din veiviser til smarte byggeprosjekter</p>
   </header>
 
-  <section id="project-options">
-    <h2>Hva ønsker du å bygge?</h2>
-    <div class="buttons">
-      <button onclick="showGuide('veranda')">Veranda</button>
-      <button onclick="showGuide('bod')">Bod</button>
-      <button onclick="showGuide('garasje')">Garasje</button>
-      <button onclick="toggleCustom()">Eget prosjekt</button>
+  <section id="project-selector">
+    <h2>Hva vil du bygge?</h2>
+    <div class="project-buttons">
+      <button onclick="selectProject('veranda')">Bygg veranda</button>
+      <button onclick="selectProject('garasje')">Bygg garasje</button>
+      <button onclick="selectProject('bod')">Bygg bod</button>
+      <button onclick="selectProject('eget')">Annet prosjekt</button>
     </div>
   </section>
 
-  <section id="custom-project" style="display:none;">
-    <h2>Beskriv ditt prosjekt</h2>
-    <textarea id="userInput" placeholder="F.eks. Jeg vil bygge en garasje i vinkel..."></textarea>
-    <input type="file" id="fileUpload" accept="image/*,.pdf" />
-    <button onclick="submitCustom()">Send inn prosjekt</button>
+  <section id="user-form">
+    <h2>Ditt prosjekt</h2>
+    <form id="customProjectForm" onsubmit="handleSubmit(event)">
+      <input type="text" id="name" placeholder="Navn" required>
+      <input type="text" id="address" placeholder="Adresse" required>
+      <input type="email" id="email" placeholder="E-post" required>
+      <input type="tel" id="phone" placeholder="Telefon" required>
+      <textarea id="projectDescription" placeholder="Beskriv prosjektet ditt..." required></textarea>
+      <input type="file" id="uploadImage" accept="image/*">
+      <button type="submit">Send inn prosjekt</button>
+    </form>
   </section>
 
-  <section id="result"></section>
+  <section id="result" class="hidden">
+    <h2>AI-veiledning</h2>
+    <div id="aiResponse"></div>
+    <div id="projectImage"></div>
+  </section>
 
-  <section id="ads">
-    <h3>Anbefalt verktøy</h3>
-    <div id="adSlider">
-      <a href="https://www.verktøy.no/dewalt" target="_blank"><img src="https://www.dewalt.no/sites/dewalt/files/styles/dewalt_1440x610/public/2023-05/DCD999T2T.png" alt="Dewalt drill" /></a>
-      <a href="https://www.verktøy.no/makita" target="_blank"><img src="https://www.makita.no/images/produkter/borskrutrekker/makita_dhp481rtj.png" alt="Makita drill" /></a>
-      <a href="https://www.verktøy.no/festool" target="_blank"><img src="https://media.festool.com/media/img/produktbilder/576088-P-01.png" alt="Festool sag" /></a>
+  <section id="tips" class="hidden">
+    <h3>Tips</h3>
+    <ul id="tipsList">
+      <li>Bygg minst 1 meter fra nabogrensen</li>
+      <li>Sjekk behov for byggesøknad</li>
+      <li>Bruk godkjente materialer utendørs</li>
+    </ul>
+  </section>
+
+  <section id="reklame">
+    <h3>Populære verktøy</h3>
+    <div class="ad-carousel" id="adCarousel">
+      <!-- fylles av script -->
     </div>
   </section>
-
-  <footer>
-    <p>© 2025 ByggHjelpen – din digitale byggpartner</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
