@@ -4,38 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ByggHjelpen</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>ByggHjelpen</h1>
-    <p>Få hjelp til dine byggeprosjekter – veiledning, priser, lover og leverandører</p>
+    <h1>🛠️ ByggHjelpen</h1>
+    <p>Få hjelp til ditt byggeprosjekt – veiledning, priser og tips!</p>
   </header>
 
-  <main>
-    <h2>Hva vil du bygge?</h2>
-    <div class="project-buttons">
-      <button onclick="showGuide('veranda')">Bygge veranda</button>
-      <button onclick="showGuide('garasje')">Bygge garasje</button>
-      <button onclick="showGuide('anneks')">Bygge anneks</button>
-      <button onclick="showCustomProject()">Eget prosjekt</button>
+  <section id="project-options">
+    <h2>Hva ønsker du å bygge?</h2>
+    <div class="buttons">
+      <button onclick="showGuide('veranda')">Veranda</button>
+      <button onclick="showGuide('bod')">Bod</button>
+      <button onclick="showGuide('garasje')">Garasje</button>
+      <button onclick="toggleCustom()">Eget prosjekt</button>
     </div>
+  </section>
 
-    <div id="customProjectForm" class="hidden">
-      <h3>Beskriv ditt prosjekt</h3>
-      <textarea id="customDescription" placeholder="Skriv hva du vil bygge..."></textarea>
-      <input type="file" id="customImages" multiple />
-      <button onclick="generateCustomResponse()">Få forslag</button>
-    </div>
+  <section id="custom-project" style="display:none;">
+    <h2>Beskriv ditt prosjekt</h2>
+    <textarea id="userInput" placeholder="F.eks. Jeg vil bygge en garasje i vinkel..."></textarea>
+    <input type="file" id="fileUpload" accept="image/*,.pdf" />
+    <button onclick="submitCustom()">Send inn prosjekt</button>
+  </section>
 
-    <section id="output"></section>
+  <section id="result"></section>
 
+  <section id="ads">
     <h3>Anbefalt verktøy</h3>
-    <div class="ads" id="adsContainer"></div>
-  </main>
+    <div id="adSlider">
+      <a href="https://www.verktøy.no/dewalt" target="_blank"><img src="https://www.dewalt.no/sites/dewalt/files/styles/dewalt_1440x610/public/2023-05/DCD999T2T.png" alt="Dewalt drill" /></a>
+      <a href="https://www.verktøy.no/makita" target="_blank"><img src="https://www.makita.no/images/produkter/borskrutrekker/makita_dhp481rtj.png" alt="Makita drill" /></a>
+      <a href="https://www.verktøy.no/festool" target="_blank"><img src="https://media.festool.com/media/img/produktbilder/576088-P-01.png" alt="Festool sag" /></a>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 ByggHjelpen – Alt du trenger for å bygge smart</p>
+    <p>© 2025 ByggHjelpen – din digitale byggpartner</p>
   </footer>
 
   <script src="script.js"></script>
