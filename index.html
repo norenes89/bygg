@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Din ByggHjelp</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Din ByggHjelp</h1>
-      <nav>
-        <button onclick="loadProject('veranda')">Bygg veranda</button>
-        <button onclick="loadProject('garasje')">Bygg garasje</button>
-        <button onclick="loadProject('tilbygg')">Bygg tilbygg</button>
-        <button onclick="loadProject('eget')">Eget prosjekt</button>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ByggHjelpen – Din Smarte Veileder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ByggHjelpen</h1>
+    <p>Velg ditt prosjekt eller forklar ditt eget</p>
+  </header>
 
-    <main id="mainContent">
-      <section id="intro">
-        <h2>Velg prosjektet du vil ha hjelp til</h2>
-        <p>Vi veileder deg med materialer, priser, og lover – helt gratis!</p>
-      </section>
-    </main>
+  <main>
+    <section id="project-choices">
+      <button onclick="startProject('veranda')">Bygg Veranda</button>
+      <button onclick="startProject('garasje')">Bygg Garasje</button>
+      <button onclick="startProject('tilbygg')">Bygg Tilbygg</button>
+      <button onclick="startCustomProject()">Eget Prosjekt</button>
+    </section>
 
-    <footer>
-      <div class="ads">
-        <marquee behavior="scroll" direction="left">
-          <a href="https://www.verktøy.no" target="_blank">
-            🔧 Populære verktøy fra Makita, DeWalt, Festool – Klikk her!
-          </a>
-        </marquee>
+    <section id="custom-project" style="display: none;">
+      <h2>Beskriv prosjektet ditt</h2>
+      <textarea id="project-input" placeholder="F.eks: Garasje 6x7m, 30° tak, 2 vinduer..."></textarea>
+      <input type="text" id="navn" placeholder="Navn" />
+      <input type="text" id="adresse" placeholder="Adresse" />
+      <input type="email" id="epost" placeholder="E-post" />
+      <input type="tel" id="telefon" placeholder="Telefon" />
+      <button onclick="sendToAI()">Send inn</button>
+    </section>
+
+    <section id="ai-response" style="display: none;">
+      <h2>AI Veiledning</h2>
+      <div id="ai-output"></div>
+      <div id="project-image"></div>
+    </section>
+
+    <section id="tips">
+      <h2>Tips</h2>
+      <ul>
+        <li>Hold 4 meter fra nabogrensen hvis mulig</li>
+        <li>Brannsikring: minst 1 meter klaring fra bygg med brennbare materialer</li>
+        <li>Undersøk reguleringsplanen for tomta</li>
+        <li>Sjekk med kommunen for søknadsplikt</li>
+      </ul>
+    </section>
+
+    <section id="ads">
+      <h2>Populære verktøy</h2>
+      <div id="ad-carousel">
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://images.unsplash.com/photo-1581090700227-1b57c818b7c9" alt="DeWalt Drill" /></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://images.unsplash.com/photo-1580914094983-cad19e1520f6" alt="Makita Sag" /></a>
+        <a href="https://www.verktøy.no" target="_blank"><img src="https://images.unsplash.com/photo-1612837017391-8e037262c962" alt="Festool Fres" /></a>
       </div>
-      <p>© 2025 Din ByggHjelp</p>
-    </footer>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
